@@ -17,6 +17,7 @@ def prepare_df():
     df['gluc'] = df['gluc'].map({1: 0, 2: 1, 3: 1})
     return df
 
+# Draw Categorical Plot
 def draw_cat_plot():
     df = prepare_df()
     # Create DataFrame for cat plot using `pd.melt` using just the values from 'cholesterol', 'gluc', 'smoke', 'alco', 'active', and 'overweight'
@@ -28,26 +29,27 @@ def draw_cat_plot():
     # *** you have to rename one of the columns merely to meet the close-to-arbitrary exercise requirements... 
     # *** ...rather than "for the catplot to work correctly."
     df_cat = df_cat.value_counts(sort=False).to_frame().reset_index()
-    df_cat = df_cat.rename(columns={0: 'total'})
-    
-    fig = plt.figure()
+    df_cat.rename(columns={0: 'total'}, inplace=True)
     
     # Draw the catplot with 'sns.catplot()'
-    cat = sns.catplot(df_cat, x='variable', y='total', hue='value', col='cardio', kind='bar')
+    sns.catplot(df_cat, x='variable', y='total', hue='value', col='cardio', kind='bar')
 
     # Get the figure for the output
-    fig = cat.fig
+    fig = plt.figure()
+
 
     # Do not modify the next two lines
     fig.savefig('catplot.png')
     return fig
 
+# Draw Heat Map
 def draw_heat_map():
-    
     df = prepare_df()
     # Clean the data
     # *** only use data where ap-lo <= ap-hi
     # *** trim the outliers from height and weight (below the 2.5 percentile or above 97.5 percentile)
+    # *** this was required only for this particular function, but I would probably extract it to its own function
+    # *** when working with data in the real world as not to pollute the original data frame.
     df_heat = df[(df['ap_lo'] <= df['ap_hi']) 
     & (df['height'] >= df['height'].quantile(0.025)) 
     & (df['height'] <= df['height'].quantile(0.975)) 
@@ -58,16 +60,13 @@ def draw_heat_map():
     corr = df_heat.corr()
 
     # Generate a mask for the upper triangle
-    mask = np.triu(np.ones(corr.shape)).astype(bool)[0:14, 0:14]
-    corr = corr.mask(mask)
-
+    mask = mask = np.triu(np.ones_like(corr, dtype=bool))
+    corr.mask(mask, inplace=True)
 
     # Set up the matplotlib figure
-    fig = plt.subplots()[0]
-
-    # Draw the heatmap with 'sns.heatmap()'
-
-    sns.heatmap(corr, annot=True, fmt=".1f")
+    fig, ax = plt.subplots()
+    sns.heatmap(corr, annot=True, fmt=".1f", ax = ax)
+    ax.set_title("Cardiovascular Disease Risk - Correlation Heatmap")
     
     # Do not modify the next two lines
     fig.savefig('heatmap.png')
