@@ -68,5 +68,7 @@ And the output:
 
 ## Project 5 (Sea Level Predictor):
 
+This plot shows two linear regression lines on a scatter plot of sea level measurements taken over the course of a century.
+
 ![Image of a scatter plot with two regression lines](Project%205/sea_level_plot.png)
 
