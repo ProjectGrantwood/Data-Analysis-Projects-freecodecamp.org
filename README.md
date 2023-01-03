@@ -11,9 +11,9 @@ As a result of working on this certification, I gained proficiency with the foll
 - Seaborn  
 - Numpy  
 
-Here is some example work:
+## Example work:
 
-## Project 4 ("Time Series Visualizer")
+### Project 4 ("Time Series Visualizer")
 
 *Note: two variables used below were declared in the global scope: "df", which is the DataFrame holding the time series data, and "month_labels", which is a list of strings representing full month names.*
 
@@ -66,7 +66,7 @@ And the output:
 
 ![Image of a bar plot constructed using the Seaborn module](Project%204/bar_plot.png)
 
-## Project 5 (Sea Level Predictor):
+### Project 5 (Sea Level Predictor):
 
 This plot shows two linear regression lines on a scatter plot of sea level measurements taken over the course of a century.
 
