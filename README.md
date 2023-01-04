@@ -1,10 +1,10 @@
 # FCC-Data-Analysis-Certification
 
-This repository contains a collection of the relevant coursework I completed in earning the Data Analysis with Python certification from [freeCodeCamp.org](https://www.freecodecamp.org/learn/data-analysis-with-python/). You can verify the certification [here](https://www.freecodecamp.org/certification/JustinTurner/data-analysis-with-python-v7). 
+This repository contains a collection of the relevant coursework I completed to earn the Data Analysis with Python certification from [freeCodeCamp.org](https://www.freecodecamp.org/learn/data-analysis-with-python/). You can verify the certification [here](https://www.freecodecamp.org/certification/JustinTurner/data-analysis-with-python-v7). 
 
 If you want a strong sense of my fluency in Python and how I communicate via comments in the context of code development, each project folder contains a notebook file (identified by the \**.ipynb* extension) for that purpose. In addition, copies of the files I submitted to earn the certification are also present in each project folder, and are named using the actual project title (for example, Project 1's submission file is *mean_var_std.py*). The fundamental Python code is the same between the submission files and their respective notebook presentation, aside from a few test cases and/or comments.
 
-As a result of working on this certification, I gained proficiency with the following Python modules, listed below and loosely ordered by how much focus I felt I had to give them in order to fulfill all requirements:
+As a result of working on this certification, I gained proficiency with the following Python modules:
 
 - Pandas  
 - Matplotlib  
